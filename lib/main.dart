@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:unity_ads_plugin/unity_ads.dart';
+
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -28,8 +30,12 @@ class MainP extends StatefulWidget {
 }
 
 class _MainPState extends State<MainP> {
-  void initState() {
+  void initState() {    
     super.initState();
+    UnityAds.init(
+      gameId: "4286805",
+      testMode: true
+    );
     myBanner.load();
     // Load ads.
   }
@@ -51,6 +57,7 @@ class _MainPState extends State<MainP> {
             height: 20,
             color: Colors.green,
           ),
+          SizedBox(height: 50,),
           Container(
             alignment: Alignment.center,
             child: AdWidget(
@@ -58,7 +65,16 @@ class _MainPState extends State<MainP> {
             ),
             width: myBanner.size.width.toDouble(),
             height: myBanner.size.height.toDouble(),
-          )
+          ),
+          SizedBox(height: 50,),
+          Center(
+                  child: Container(
+                    margin: EdgeInsets.all(5),
+                    child: UnityBannerAd(
+                      placementId: "Banner_Android",
+                    ),
+                  ),
+                ),
         ],
       ),
     );

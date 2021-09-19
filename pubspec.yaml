@@ -26,6 +26,7 @@ dependencies:
     sdk: flutter
   google_mobile_ads: ^0.13.4
   provider: ^6.0.0
+  unity_ads_plugin: ^0.2.4
 
 dev_dependencies:
   flutter_test:
